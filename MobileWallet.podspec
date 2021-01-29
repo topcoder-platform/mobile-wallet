@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "MobileWallet"
-  s.version     = "0.0.6"
+  s.version     = "0.0.11"
   s.summary     = "Mobile Wallet framework"
   s.homepage    = "https://github.com/topcoder-platform/mobile-wallet"
   s.license     = { :type => "MIT" }
@@ -17,5 +17,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |cs|
     cs.source_files = "Source/*.swift"
+    cs.xcconfig = {
+      'OTHER_LDFLAGS' => '-ObjC'
+    }
   end
 end

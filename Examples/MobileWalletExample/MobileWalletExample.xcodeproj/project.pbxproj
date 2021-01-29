@@ -17,7 +17,7 @@
 		FD0928EB25C4A14200724C2C /* StagingPoolTxnGenesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0928E325C4A14200724C2C /* StagingPoolTxnGenesis.swift */; };
 		FD0928EC25C4A14200724C2C /* CMConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0928E425C4A14200724C2C /* CMConfig.swift */; };
 		FD0928F525C4A27C00724C2C /* vcx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0928F325C4A23C00724C2C /* vcx.framework */; };
-		FD0928F625C4A27C00724C2C /* vcx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD0928F325C4A23C00724C2C /* vcx.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD0928F625C4A27C00724C2C /* vcx.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD0928F325C4A23C00724C2C /* vcx.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD80847625C308380049B6B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80847525C308380049B6B8 /* AppDelegate.swift */; };
 		FD80847825C308380049B6B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80847725C308380049B6B8 /* SceneDelegate.swift */; };
 		FD80847A25C308380049B6B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80847925C308380049B6B8 /* ViewController.swift */; };
@@ -420,6 +420,7 @@
 					"$(PROJECT_DIR)/vcx",
 				);
 				INFOPLIST_FILE = MobileWalletExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,6 +450,7 @@
 					"$(PROJECT_DIR)/vcx",
 				);
 				INFOPLIST_FILE = MobileWalletExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
