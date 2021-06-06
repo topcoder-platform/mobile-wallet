@@ -26,11 +26,11 @@ class ViewController: UIViewController {
 //            CMConfig.shared.walletKey = "...<put key here if you are using the same key on other device>"
 //            CMConfig.shared.poolName = "<put pool name if you know it>"
         }
-        do {
-            CMConfig.shared.environment = .demo
-            CMConfig.shared.walletName = "DemoKey"
-//            CMConfig.shared.walletKey = "...<put key here if you are using the same key on other device>"
-        }
+//        do {
+//            CMConfig.shared.environment = .demo
+//            CMConfig.shared.walletName = "DemoKey"
+////            CMConfig.shared.walletKey = "...<put key here if you are using the same key on other device>"
+//        }
         cancellable = CMConfig.shared.initialize()
             .sink(receiveCompletion: { completion in
                 switch completion {

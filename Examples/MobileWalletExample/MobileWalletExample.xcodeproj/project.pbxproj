@@ -44,14 +44,14 @@
 		5624B77E2E9772327745E26B /* Pods-MobileWalletExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileWalletExample.debug.xcconfig"; path = "Target Support Files/Pods-MobileWalletExample/Pods-MobileWalletExample.debug.xcconfig"; sourceTree = "<group>"; };
 		747BE1A69B285492A6B55C31 /* Pods_MobileWalletExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileWalletExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD15A5C31CC8C32CD0CD880 /* Pods-MobileWalletExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileWalletExample.release.xcconfig"; path = "Target Support Files/Pods-MobileWalletExample/Pods-MobileWalletExample.release.xcconfig"; sourceTree = "<group>"; };
-		FD0928DD25C4A14200724C2C /* CMConfig+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CMConfig+Credentials.swift"; path = "../../../../Source/CMConfig+Credentials.swift"; sourceTree = "<group>"; };
-		FD0928DE25C4A14200724C2C /* SandboxPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SandboxPoolTxnGenesis.swift; path = ../../../../Source/SandboxPoolTxnGenesis.swift; sourceTree = "<group>"; };
-		FD0928DF25C4A14200724C2C /* CMConfig+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CMConfig+Connection.swift"; path = "../../../../Source/CMConfig+Connection.swift"; sourceTree = "<group>"; };
-		FD0928E025C4A14200724C2C /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = ../../../../Source/Keychain.swift; sourceTree = "<group>"; };
-		FD0928E125C4A14200724C2C /* ProductionPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductionPoolTxnGenesis.swift; path = ../../../../Source/ProductionPoolTxnGenesis.swift; sourceTree = "<group>"; };
-		FD0928E225C4A14200724C2C /* DemoPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoPoolTxnGenesis.swift; path = ../../../../Source/DemoPoolTxnGenesis.swift; sourceTree = "<group>"; };
-		FD0928E325C4A14200724C2C /* StagingPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StagingPoolTxnGenesis.swift; path = ../../../../Source/StagingPoolTxnGenesis.swift; sourceTree = "<group>"; };
-		FD0928E425C4A14200724C2C /* CMConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CMConfig.swift; path = ../../../../Source/CMConfig.swift; sourceTree = "<group>"; };
+		FD0928DD25C4A14200724C2C /* CMConfig+Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMConfig+Credentials.swift"; sourceTree = "<group>"; };
+		FD0928DE25C4A14200724C2C /* SandboxPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandboxPoolTxnGenesis.swift; sourceTree = "<group>"; };
+		FD0928DF25C4A14200724C2C /* CMConfig+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMConfig+Connection.swift"; sourceTree = "<group>"; };
+		FD0928E025C4A14200724C2C /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		FD0928E125C4A14200724C2C /* ProductionPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductionPoolTxnGenesis.swift; sourceTree = "<group>"; };
+		FD0928E225C4A14200724C2C /* DemoPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoPoolTxnGenesis.swift; sourceTree = "<group>"; };
+		FD0928E325C4A14200724C2C /* StagingPoolTxnGenesis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StagingPoolTxnGenesis.swift; sourceTree = "<group>"; };
+		FD0928E425C4A14200724C2C /* CMConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMConfig.swift; sourceTree = "<group>"; };
 		FD0928F325C4A23C00724C2C /* vcx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vcx.framework; path = vcx/vcx.framework; sourceTree = SOURCE_ROOT; };
 		FD80847225C308380049B6B8 /* MobileWalletExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileWalletExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD80847525C308380049B6B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +98,8 @@
 			children = (
 				FD0928F325C4A23C00724C2C /* vcx.framework */,
 			);
-			path = vcx;
+			name = vcx;
+			path = ../Libraries;
 			sourceTree = "<group>";
 		};
 		FD80846925C308380049B6B8 = {
@@ -142,7 +143,8 @@
 				FD0928E325C4A14200724C2C /* StagingPoolTxnGenesis.swift */,
 				FD0928C825C46D4400724C2C /* vcx */,
 			);
-			path = Library;
+			name = Library;
+			path = ../../../Source;
 			sourceTree = "<group>";
 		};
 		FD80848A25C308B40049B6B8 /* General */ = {
@@ -433,6 +435,7 @@
 					"${SRCROOT}/vcx/vcx.framework/Headers",
 				);
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -463,6 +466,7 @@
 					"${SRCROOT}/vcx/vcx.framework/Headers",
 				);
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
