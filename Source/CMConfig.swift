@@ -297,6 +297,16 @@ open class CMConfig {
         if error != nil && (error as NSError?)?.code != 0 { print("ERROR [\(label)]: \(String(describing: error))"); promise(.failure(error!));return true }
         return false
     }
+    
+    /// Get error code from given error
+    /// - Parameter error: the error
+    /// - Returns: error code (if not zero) or nil
+    public static func getErrorCode(from error: Error?) -> Int? {
+        if let _ = error, let code = (error as NSError?)?.code, code != 0 {
+            return code
+        }
+        return nil
+    }
 }
 
 extension Dictionary {

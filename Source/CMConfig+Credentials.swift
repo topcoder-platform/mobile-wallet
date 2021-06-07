@@ -34,7 +34,7 @@ cancellable = util.connect(withInviteDetails: invitation)
         _ = util.connectionRelease(handle: connectionHandle)
         guard self != nil else { return }
         
-         let connectionName = invitation["label"].string ?? "-"
+         let connectionName = invitation["s"]["n"].string ?? invitation["label"].string ?? "-"
          let didRemote = invitation["recipientKeys"].arrayValue.first?.string ?? "-"
         // Show connection in UI
 }
