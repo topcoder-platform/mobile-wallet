@@ -283,7 +283,7 @@ open class CMConfig {
     // MARK: - VCX Init
     
     /// Initialize library. Configure environment, wallet, etc. before calling this method.
-    public func initialize() -> Future<Void, Error> {
+    public func initialize(deviceToken:String, handle:String) -> Future<Void, Error> {
         return Future { promise in
             let sdkApi = CMConfig.sdkApi
             let agencyConfig = self.getAgencyConfig()
@@ -309,6 +309,21 @@ open class CMConfig {
                     guard !CMConfig.printError(label: "initWithConfig", error, promise: promise) else { return }
                     self.sdkInited = true
                     print("######## VCX Config Successful! :) #########")
+                    //https://gitlab.com/evernym/mobile/mobile-sdk/-/blob/main/docs/PushNotifications.md#push-notifications-setup
+                    print("Attempting agent registration")
+                    let agentConfig = """
+                    {
+                         "id": "\(deviceToken)",
+                         "type": 3,
+                         "value": "\(handle)"
+                    }
+                    """
+                    
+                    print("Config:", agentConfig)
+
+                    sdkApi.agentUpdateInfo(agentConfig) { (error) in
+                        print("Agent update info sent", error)
+                    }
                     promise(.success(()))
                 }
             }

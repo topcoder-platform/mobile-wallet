@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "MobileWallet"
-  s.version     = "0.1.4"
+  s.version     = "0.1.5"
   s.summary     = "Mobile Wallet framework"
   s.homepage    = "https://github.com/topcoder-platform/mobile-wallet"
   s.license     = { :type => "MIT" }
