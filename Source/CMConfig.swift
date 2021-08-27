@@ -242,52 +242,41 @@ open class CMConfig {
         }
     }
     
-
-    
-    public func getProvisioningToken() -> String{
-        let nonce = UUID().uuidString
-        let sponseeId = "Topcoder dev"
-        let sponsorId = "universal_identity"
-        let date = Date()
-        let RFC3339DateFormatter = DateFormatter()
-        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZ"
-        RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-
-        let timestamp = RFC3339DateFormatter.string(from: date)
-
-        let unsignedSig = nonce + timestamp + sponseeId + sponsorId
-        print("Unsigned sig: \(unsignedSig)")
-        do {
-            let privateKey = "<<INSERT PRIVATE KEY HERE>>".data(using: .hexadecimal)
-            let signingKey = try Curve25519.Signing.PrivateKey.init(rawRepresentation: privateKey!)
-            let sig = try signingKey.signature(for:unsignedSig.data(using: .utf8)!).base64EncodedString(options: [])
-        
-            let token = """
-                        {
-                          "sponseeId":     "\(sponseeId)",
-                          "sponsorId":     "\(sponsorId)",
-                          "nonce":         "\(nonce)",
-                          "timestamp":     "\(timestamp)",
-                          "sig":           "\(sig)",
-                          "sponsorVerKey": "97yVC1NKot3D8tWsPwgzhRwi2wSsTS2w12KX9mz7D9Kg"
-                        }
-                    """
-            return token
-        }
-        catch{
-            print("ERROR signing provisioning token(): \(error)")
-            return ""
-        }
+    /// Get updated provisioning token
+    /// - Parameter tokenDic: the token dic
+    public func getProvisioningToken(tokenResponse: [String: Any]) -> String {
+        guard let tokenDic = tokenResponse["token"] as? [String: String] else { return "" }
+        let sponseeId = tokenDic["sponseeId"] ?? ""
+        let sponsorId = tokenDic["sponsorId"] ?? ""
+        let nonce = tokenDic["nonce"] ?? ""
+        let sig = tokenDic["sig"] ?? ""
+        let sponsorVerId = tokenDic["sponsorVerId"] ?? ""
+        let timestamp = tokenDic["timestamp"] ?? ""
+        let token = """
+                    {
+                      "sponseeId":     "\(sponseeId)",
+                      "sponsorId":     "\(sponsorId)",
+                      "nonce":         "\(nonce)",
+                      "timestamp":     "\(timestamp)",
+                      "sig":           "\(sig)",
+                      "sponsorVerKey": "\(sponsorVerId)"
+                    }
+                """
+        return token
     }
+    
     // MARK: - VCX Init
     
     /// Initialize library. Configure environment, wallet, etc. before calling this method.
-    public func initialize(deviceToken:String, handle:String) -> Future<Void, Error> {
+    /// - Parameters:
+    ///   - deviceToken: the device token (for APN)
+    ///   - handle: the handle
+    ///   - tokenResponse: the provisioning token response
+    public func initialize(deviceToken:String, handle:String, tokenResponse: [String: Any]) -> Future<Void, Error> {
         return Future { promise in
             let sdkApi = CMConfig.sdkApi
             let agencyConfig = self.getAgencyConfig()
-            let provisioningToken = self.getProvisioningToken()
+            let provisioningToken = self.getProvisioningToken(tokenResponse: tokenResponse)
             print("Agency config \(agencyConfig)")
             print("sdkApi.agentProvisionWithTokenAsync...")
             print("Provisioning token \(provisioningToken)")
@@ -322,7 +311,7 @@ open class CMConfig {
                     print("Config:", agentConfig)
 
                     sdkApi.agentUpdateInfo(agentConfig) { (error) in
-                        print("Agent update info sent", error)
+                        print("Agent update info sent", error?.localizedDescription ?? "")
                     }
                     promise(.success(()))
                 }
